@@ -53,35 +53,64 @@ const myDate = new Date().toDateString();
 document.getElementById('chekbox-date').innerText = myDate
 
             // challenge part 1 bg color change
-document.getElementById('theme-btn')
-    .addEventListener('click',function(){
-        const body = document.getElementById('body-tag');
-        console.log(body.className)
-        let r = Math.floor(Math.random() * 256);
-        let g = Math.floor(Math.random() * 256);
-        let b = Math.floor(Math.random() * 256);
-        function rgbToHex(r, g, b) {
-            function componentToHex(c) {
-                const hex = c.toString(16);
-                return hex.length === 1 ? "0" + hex : hex;
-            }
-            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-        }
-        const colorHexValue = rgbToHex(r, g, b);
-        console.log(colorHexValue)
-        let color=colorHexValue;
-        let bgcolorarray = body.className.split("-");
-        console.log(bgcolorarray)
-        let bgcolor = body.className.split("-")[1];
-        console.log(bgcolor)
-        bgcolor=[colorHexValue];
-        console.log(bgcolor)
-        body.classList.add("bg-",bgcolor)
-        console.log(body)
-        // body.classList.add("bg-[",colorHexValue,"]");
-        // console.log(body.classList.add("bg-[",colorHexValue,"]"))
+// document.getElementById('theme-btn')
+//     .addEventListener('click',function(){
+//         const body = document.getElementById('body-tag');
+//         console.log(body.className)
+//         let r = Math.floor(Math.random() * 256);
+//         let g = Math.floor(Math.random() * 256);
+//         let b = Math.floor(Math.random() * 256);
+//         function rgbToHex(r, g, b) {
+//             function componentToHex(c) {
+//                 const hex = c.toString(16);
+//                 return hex.length === 1 ? "0" + hex : hex;
+//             }
+//             return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+//         }
+//         const colorHexValue = rgbToHex(r, g, b);
+//         console.log(colorHexValue)
+//         let color=colorHexValue;
+//         let bgcolorarray = body.className.split("-");
+//         console.log(bgcolorarray)
+//         let bgcolor = body.className.split("-")[1];
+//         console.log(bgcolor)
+//         bgcolor=[colorHexValue];
+//         console.log(bgcolor)
+//         body.classList.add("bg-",bgcolor)
+//         console.log(body)
+//         // body.classList.add("bg-[",colorHexValue,"]");
+//         // console.log(body.classList.add("bg-[",colorHexValue,"]"))
         
-})
+// })
 
+
+// function getRandomColor() {
+//     // Generate random values for red, green, and blue
+//     const r = Math.floor(Math.random() * 256);
+//     const g = Math.floor(Math.random() * 256);
+//     const b = Math.floor(Math.random() * 256);
+//     return `rgb(${r}, ${g}, ${b})`;
+//   }
+//   console.log(getRandomColor())
+//   const button = document.getElementById('randomColorBtn');
+//   button.addEventListener('click', function() {
+//     // Set the body's background color to a random color
+//     document.body.style.backgroundColor = getRandomColor();
+//   });
+
+// Function to generate a random hex color code
+function getRandomHexColor() {
+    // Math.random() generates a number between 0 and 1.
+    // Multiplying by 16777215 (0xFFFFFF) gives a number between 0 and 0xFFFFFF.
+    // .toString(16) converts the number to a hex string.
+    // '000000' + ... ensures the string is at least 6 characters, then slice the last 6 characters.
+    return '#' + ('000000' + Math.floor(Math.random() * 16777215).toString(16)).slice(-6);
+  }
+
+  // Add an event listener to the button to change the background color when clicked
+  const button = document.getElementById('randomColorBtn');
+  button.addEventListener('click', function() {
+    document.body.style.backgroundColor = getRandomHexColor();
+  });
 
 
